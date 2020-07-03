@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./Login.css";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -20,6 +22,11 @@ const Login = () => {
 
       const json = await result.json();
       console.log(json);
+      if (json.status !== "success") {
+        alert("Unsuccesful login. Check your email and password.");
+      } else {
+        history.push("/");
+      }
     } else {
       form.reportValidity();
     }
