@@ -15,15 +15,13 @@ const Signup = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          // 'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: JSON.stringify({ email: email, password: password }),
       });
 
       const json = await result.json();
-      console.log(json);
       if (json.status !== "success") {
-        alert("Unsuccesfull login. Check your email and password.");
+        alert("Unsuccesfull signup.");
       } else {
         history.push("/");
       }
