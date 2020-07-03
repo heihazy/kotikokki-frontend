@@ -1,9 +1,14 @@
 .nav-items li {
   list-style-type: none;
   color: #ffffff;
-  padding-right: 4rem;
+  padding-right: 1rem;
+  margin-right: 4rem;
   font-size: 1.5rem;
   margin-top: 1rem;
+}
+
+.nav-items li:hover {
+  border-bottom: 3px solid lightcoral;
 }
 
 .nav-items nav ul {
@@ -13,13 +18,15 @@
 }
 
 .logo {
-  width: 7%;
-  height: 7%;
+  max-width: 50%;
+}
+.logo:hover {
+  cursor: pointer;
 }
 
 .main-nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   background-color: rgb(73, 72, 72);
   align-content: center;
   position: fixed;
@@ -31,4 +38,9 @@
   font-size: 1.5rem;
   color: #ffffff;
   margin-top: 2rem;
+}
+
+.shopping-bag:hover {
+  cursor: pointer;
+  color: lightcoral;
 }

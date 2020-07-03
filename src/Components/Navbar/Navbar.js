@@ -8,14 +8,24 @@ import "./Navbar.css";
 const Navbar = () => {
   return (
     <div className="main-nav">
-      <img className="logo" src={kotikokki} alt="kotikokki" />
+      <Link to="/">
+        <img className="logo" src={kotikokki} alt="kotikokki" />
+      </Link>
       <div className="nav-items">
         <nav>
           <ul>
-            <li>About us</li>
-            <li>How it works</li>
-            <li>Blog</li>
-            <li>Contact</li>
+            <Link to="/about">
+              <li>About us</li>
+            </Link>
+            <Link to="/howitworks">
+              <li>How it works</li>
+            </Link>
+            <Link to="/blog">
+              <li>Blog</li>
+            </Link>
+            <Link to="/contact">
+              <li>Contact</li>
+            </Link>
           </ul>
         </nav>
       </div>
