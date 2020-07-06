@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Handlee&display=swap");
+.footer {
+  background-color: rgb(73, 72, 72);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.social-media {
+  align-self: center;
+  justify-self: center;
+}
+.icon {
+  font-size: 2rem;
+  color: #f5b8d2;
+  padding-right: 3rem;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+.footer-text {
+  color: #ffffff;
+  font-family: "Handlee", cursive;
+  font-size: 1.5rem;
+  justify-self: center;
+  align-self: center;
+}
