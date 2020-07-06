@@ -1,11 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
-
-.login-page,
-.register-page {
-  width: 360px;
+.login-page, .register-page {
   padding: 8% 0 0;
   margin: auto;
+  background-color: #7FC06C;
+  height: 100vh;
 }
+
 .form {
   position: relative;
   z-index: 1;
@@ -16,6 +16,7 @@
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
+
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
@@ -27,6 +28,7 @@
   box-sizing: border-box;
   font-size: 14px;
 }
+
 .form button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
@@ -41,9 +43,8 @@
   transition: all 0.3 ease;
   cursor: pointer;
 }
-.form button:hover,
-.form button:active,
-.form button:focus {
+
+.form button:hover, .form button:active, .form button:focus {
   background: #43a047;
 }
 
@@ -56,29 +57,34 @@
   color: #b3b3b3;
   font-size: 12px;
 }
+
 .form .message a {
   color: #4caf50;
   text-decoration: none;
 }
+
 .form .register-form {
   display: none;
 }
+
 .container {
   position: relative;
   z-index: 1;
   max-width: 300px;
   margin: 0 auto;
 }
-.container:before,
-.container:after {
+
+.container:before, .container:after {
   content: "";
   display: block;
   clear: both;
 }
+
 .container .info {
   margin: 50px auto;
   text-align: center;
 }
+
 .container .info h1 {
   margin: 0 0 15px;
   padding: 0;
@@ -86,24 +92,17 @@
   font-weight: 300;
   color: #1a1a1a;
 }
+
 .container .info span {
   color: #4d4d4d;
   font-size: 12px;
 }
+
 .container .info span a {
   color: #000000;
   text-decoration: none;
 }
+
 .container .info span .fa {
   color: #ef3b3a;
-}
-body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8dc26f);
-  background: -moz-linear-gradient(right, #76b852, #8dc26f);
-  background: -o-linear-gradient(right, #76b852, #8dc26f);
-  background: linear-gradient(to left, #76b852, #8dc26f);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }

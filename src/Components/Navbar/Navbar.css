@@ -7,8 +7,12 @@
   margin-top: 1rem;
 }
 
+.nav-items a {
+  text-decoration: none;
+}
+
 .nav-items li:hover {
-  border-bottom: 3px solid lightcoral;
+  border-bottom: 3px solid #F5B8D2;
 }
 
 .nav-items nav ul {
@@ -20,6 +24,7 @@
 .logo {
   max-width: 50%;
 }
+
 .logo:hover {
   cursor: pointer;
 }
@@ -41,5 +46,5 @@
 
 .shopping-bag:hover {
   cursor: pointer;
-  color: lightcoral;
+  color: #F5B8D2;
 }
