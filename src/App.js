@@ -9,6 +9,7 @@ import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Howitworks from "./Pages/Howitworks";
 import Navbar from "./Components/Navbar/Navbar";
+import Footer from "./Components/Footer/Footer";
 const App = () => {
   return (
     <div id="app">
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/signup" component={Signup} />
           </Switch>
         </main>
+        <Footer />
       </Router>
     </div>
   );
