@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./Login.css";
+import { Login } from "../../Services/authenticationService";
 import { useHistory } from "react-router-dom";
 
-const Login = () => {
+const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
@@ -11,20 +12,7 @@ const Login = () => {
     event.preventDefault();
     const form = document.querySelector("form");
     if (form.checkValidity()) {
-      const result = await fetch("http://localhost:8000/api/v1/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: email, password: password }),
-      });
-
-      const json = await result.json();
-      if (json.status !== "success") {
-        alert("Unsuccesful login. Check your email and password.");
-      } else {
-        history.push("/");
-      }
+      Login(email, password, history);
     } else {
       form.reportValidity();
     }
@@ -68,4 +56,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

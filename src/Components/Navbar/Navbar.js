@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import {
+  UserIsAuthenticated,
+  Logout,
+} from "../../Services/authenticationService";
 import kotikokki from "../../kotikokki-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
+import { useHistory } from "react-router-dom";
+
 const Navbar = () => {
+  const history = useHistory();
   return (
     <div className="main-nav">
       <Link to="/">
@@ -26,9 +32,16 @@ const Navbar = () => {
             <Link to="/contact">
               <li>Contact</li>
             </Link>
-            <Link to="/login">
-              <li>Login</li>
-            </Link>
+            {UserIsAuthenticated() && (
+              <Link to="/logout" onClick={() => Logout(history)}>
+                <li>Logout</li>
+              </Link>
+            )}
+            {!UserIsAuthenticated() && (
+              <Link to="/login">
+                <li>Login</li>
+              </Link>
+            )}
           </ul>
         </nav>
       </div>

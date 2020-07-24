@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Handlee&display=swap");
+.howitworks-img {
+  max-width: 80%;
+  justify-self: end;
+}
+
+.howitworks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.howitworks-text {
+  padding-left: 1rem;
+  justify-self: center;
+}
+
+.headline {
+  font-family: "Handlee", cursive;
+  font-size: 3rem;
+}
+
+.howitworks-content {
+  font-family: "Amiri", serif;
+  font-weight: lighter;
+  font-size: 1.5rem;
+}
+
+.start-button {
+  background-color: #72b340;
+  padding: 1rem;
+  border-radius: 10px;
+  border: none;
+}
+
+.start-button:hover {
+  cursor: pointer;
+  background-color: #f5b8d2;
+}
+
+.start-button a:hover {
+  color: black;
+}
+
+.start-button a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Handlee", cursive;
+  font-weight: bold;
+  font-size: 1.3rem;
+}

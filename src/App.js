@@ -1,14 +1,20 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Homepage from "./Pages/Homepage";
-import Blog from "./Pages/Blog";
-import Contact from "./Pages/Contact";
-import Login from "./Pages/Login";
-import Signup from "./Pages/Signup";
-import Howitworks from "./Pages/Howitworks";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import Homepage from "./Pages/Homepage/Homepage";
+import Blog from "./Pages/Blog/Blog";
+import Contact from "./Pages/Contact/Contact";
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import Signup from "./Pages/Signup/Signup";
+import Howitworks from "./Pages/HowItWorks/Howitworks";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
+import Profile from "./Pages/Profile/Profile";
 const App = () => {
   return (
     <div id="app">
@@ -21,8 +27,10 @@ const App = () => {
             <Route path="/howitworks" component={Howitworks} />
             <Route path="/blog" component={Blog} />
             <Route path="/contact" component={Contact} />
-            <Route path="/login" component={Login} />
+            <Route path="/login" component={LoginPage} />
+            <Route path="/logout" render={() => <Redirect to="/login" />} />
             <Route path="/signup" component={Signup} />
+            <Route path="/profile" component={Profile} />
           </Switch>
         </main>
         <Footer />
