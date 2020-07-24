@@ -13,6 +13,7 @@
 .profile-text {
   padding-left: 1rem;
   justify-self: center;
+  max-width: 50vw;
 }
 
 .headline {
@@ -26,26 +27,31 @@
   font-size: 1.5rem;
 }
 
-.create-dish-button {
+.edit-profile-button,
+.save-profile-button {
   background-color: #72b340;
   padding: 1rem;
   border-radius: 10px;
   border: none;
 }
 
-.create-dish-button:hover {
+.edit-profile-button:hover,
+.save-profile-button:hover {
   cursor: pointer;
   background-color: #f5b8d2;
-}
-
-.create-dish-button a:hover {
   color: black;
 }
 
-.create-dish-button a {
+.edit-profile-button,
+.save-profile-button {
   color: #ffffff;
   text-decoration: none;
   font-family: "Handlee", cursive;
   font-weight: bold;
   font-size: 1.3rem;
+}
+
+.edit-mode {
+  border-bottom: 2px solid #f5b8d2;
+  border-color: #f5b8d2;
 }

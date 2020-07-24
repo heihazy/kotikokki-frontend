@@ -1,43 +1,39 @@
 import React, { useState } from "react";
 import "./../LoginPage/Login.css";
+import { Signup } from "../../Services/authenticationService";
 import { useHistory } from "react-router-dom";
 
-const Signup = () => {
+const SignupPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const history = useHistory();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = document.querySelector("form");
     if (form.checkValidity()) {
-      const result = await fetch("http://localhost:8000/api/v1/users/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: email, password: password }),
-      });
-
-      const json = await result.json();
-      if (json.status !== "success") {
-        alert("Unsuccesfull signup.");
-      } else {
-        history.push("/");
-      }
+      Signup(email, password, name, history);
     } else {
       form.reportValidity();
     }
   };
 
   const validateForm = () => {
-    return email.length > 0 && password.length > 0;
+    return email.length > 0 && password.length > 0 && name.length > 0;
   };
 
   return (
     <div className="register-page">
       <div className="form">
         <form className="login-form">
+          <input
+            type="text"
+            placeholder="name"
+            autoFocus
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
           <input
             type="email"
             placeholder="email"
@@ -68,4 +64,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignupPage;

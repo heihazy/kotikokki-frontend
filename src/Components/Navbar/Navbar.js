@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import {
   UserIsAuthenticated,
@@ -40,6 +40,11 @@ const Navbar = () => {
             {!UserIsAuthenticated() && (
               <Link to="/login">
                 <li>Login</li>
+              </Link>
+            )}
+            {UserIsAuthenticated() && (
+              <Link to="/profile">
+                <li>My Profile</li>
               </Link>
             )}
           </ul>

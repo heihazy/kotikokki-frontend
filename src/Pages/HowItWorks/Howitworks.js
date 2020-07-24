@@ -7,14 +7,22 @@ const Howitworks = () => {
     <div className="howitworks">
       <div className="howitworks-text">
         <p className="headline">
-          Kotikokki connects the community with home-made food.
+          Sell your home made food or buy from Kotikokki chefs!
         </p>
         <p className="howitworks-content">
-          If cooking is your hobby, passion or you simply want to share your
-          food with others as well as reduce food waste, Kotikokki is for you.
+          If you just want to buy real home made food and support your
+          neighbours, take a look at our chef listing page. On each chef's
+          profile, you will find their dishes and contact information.
         </p>
         <button className="start-button">
-          <Link to="/signup">Get Started</Link>
+          <Link to="/chefs">Chefs</Link>
+        </button>
+        <p className="howitworks-content">
+          Always make too much food? Join Kotikokki and sell your cookings for
+          free!
+        </p>
+        <button className="start-button">
+          <Link to="/signup">Join</Link>
         </button>
       </div>
       <img

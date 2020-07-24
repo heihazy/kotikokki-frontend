@@ -10,7 +10,7 @@ import Homepage from "./Pages/Homepage/Homepage";
 import Blog from "./Pages/Blog/Blog";
 import Contact from "./Pages/Contact/Contact";
 import LoginPage from "./Pages/LoginPage/LoginPage";
-import Signup from "./Pages/Signup/Signup";
+import SignupPage from "./Pages/SignupPage/SignupPage";
 import Howitworks from "./Pages/HowItWorks/Howitworks";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
@@ -29,7 +29,7 @@ const App = () => {
             <Route path="/contact" component={Contact} />
             <Route path="/login" component={LoginPage} />
             <Route path="/logout" render={() => <Redirect to="/login" />} />
-            <Route path="/signup" component={Signup} />
+            <Route path="/signup" component={SignupPage} />
             <Route path="/profile" component={Profile} />
           </Switch>
         </main>
