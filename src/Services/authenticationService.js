@@ -1,15 +1,18 @@
 export const Signup = async (email, password, name, history) => {
-  const result = await fetch("http://localhost:8000/api/v1/users/signup", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email: email,
-      password: password,
-      name: name,
-    }),
-  });
+  const result = await fetch(
+    "https://kotikokki.herokuapp.com/api/v1/users/signup",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        name: name,
+      }),
+    }
+  );
 
   const json = await result.json();
   if (json.status !== "success") {
@@ -20,13 +23,16 @@ export const Signup = async (email, password, name, history) => {
 };
 
 export const Login = async (email, password, history) => {
-  const result = await fetch("http://localhost:8000/api/v1/users/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email: email, password: password }),
-  });
+  const result = await fetch(
+    "https://kotikokki.herokuapp.com/api/v1/users/login",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email, password: password }),
+    }
+  );
 
   const json = await result.json();
   if (json.status !== "success") {

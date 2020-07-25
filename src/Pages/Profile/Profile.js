@@ -13,7 +13,7 @@ const Profile = () => {
   useEffect(() => {
     const getProfileInfo = async () => {
       const result = await fetch(
-        "http://localhost:8000/api/v1/users/" + currentProfile,
+        "https://kotikokki.herokuapp.com/api/v1/users/" + currentProfile,
         {
           headers: {
             "Content-Type": "application/json",
@@ -66,7 +66,7 @@ const Profile = () => {
 
   const saveContent = async () => {
     const result = await fetch(
-      "http://localhost:8000/api/v1/users/" + currentProfile,
+      "https://kotikokki.herokuapp.com/api/v1/users/" + currentProfile,
       {
         method: "PATCH",
         headers: {

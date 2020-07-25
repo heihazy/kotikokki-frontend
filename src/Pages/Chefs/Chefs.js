@@ -7,11 +7,14 @@ const Chefs = () => {
 
   useEffect(() => {
     const getChefs = async () => {
-      const result = await fetch("http://localhost:8000/api/v1/users/", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const result = await fetch(
+        "https://kotikokki.herokuapp.com/api/v1/users",
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const json = await result.json();
       if (json.status !== "success") {
         alert("Sorry, could not get chefs. Try again later.");
