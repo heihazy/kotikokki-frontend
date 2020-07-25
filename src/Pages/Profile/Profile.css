@@ -1,11 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Amiri&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Handlee&display=swap");
-.profile-img {
-  max-width: 80%;
-  justify-self: end;
-}
 
 .profile {
+  /*/ I removed the image until user can actually enter his own image.
+  Did not edit the grid. /*/
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
@@ -33,6 +31,13 @@
   padding: 1rem;
   border-radius: 10px;
   border: none;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Handlee", cursive;
+  font-weight: bold;
+  font-size: 1.3rem;
 }
 
 .edit-profile-button:hover,
@@ -42,16 +47,36 @@
   color: black;
 }
 
-.edit-profile-button,
-.save-profile-button {
-  color: #ffffff;
-  text-decoration: none;
-  font-family: "Handlee", cursive;
-  font-weight: bold;
-  font-size: 1.3rem;
-}
-
 .edit-mode {
   border-bottom: 2px solid #f5b8d2;
   border-color: #f5b8d2;
+}
+
+.phone {
+  margin-left: 1rem;
+}
+
+h1:last-of-type {
+  margin-top: 3rem;
+}
+
+.add-dish-button,
+.add-dish-input {
+  display: inline;
+}
+
+.add-dish-button {
+  background-color: #72b340;
+  color: white;
+}
+
+.fa-trash {
+  margin-left: 0.5rem;
+  color: #f5b8d2;
+  display: none;
+  float: right;
+}
+
+.fa-trash:hover {
+  cursor: pointer;
 }

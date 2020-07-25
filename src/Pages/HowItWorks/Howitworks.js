@@ -21,9 +21,18 @@ const Howitworks = () => {
           Always make too much food? Join Kotikokki and sell your cookings for
           free!
         </p>
-        <button className="start-button">
-          <Link to="/signup">Join</Link>
-        </button>
+        {localStorage.getItem("kotiKokkiToken") && (
+          <button className="start-button">
+            <Link to={"/profile?" + localStorage.getItem("kotiKokkiID")}>
+              My profile
+            </Link>
+          </button>
+        )}
+        {!localStorage.getItem("kotiKokkiToken") && (
+          <button className="start-button">
+            <Link to="/login">Join</Link>
+          </button>
+        )}
       </div>
       <img
         className="howitworks-img"

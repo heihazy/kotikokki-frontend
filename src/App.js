@@ -7,8 +7,8 @@ import {
   Redirect,
 } from "react-router-dom";
 import Homepage from "./Pages/Homepage/Homepage";
-import Blog from "./Pages/Blog/Blog";
 import Contact from "./Pages/Contact/Contact";
+import Chefs from "./Pages/Chefs/Chefs";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import SignupPage from "./Pages/SignupPage/SignupPage";
 import Howitworks from "./Pages/HowItWorks/Howitworks";
@@ -25,7 +25,7 @@ const App = () => {
             <Route exact path="/" component={Homepage} />
             <Route path="/about" component={Homepage} />
             <Route path="/howitworks" component={Howitworks} />
-            <Route path="/blog" component={Blog} />
+            <Route path="/chefs" component={Chefs} />
             <Route path="/contact" component={Contact} />
             <Route path="/login" component={LoginPage} />
             <Route path="/logout" render={() => <Redirect to="/login" />} />

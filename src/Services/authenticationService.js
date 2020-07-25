@@ -29,20 +29,12 @@ export const Login = async (email, password, history) => {
   });
 
   const json = await result.json();
-  console.log(json);
   if (json.status !== "success") {
     alert("Unsuccesful login. Check your email and password.");
   } else {
     localStorage.setItem("kotiKokkiToken", json.token);
-    localStorage.setItem("name", json.name);
-    localStorage.setItem("id", json.userId);
-    json.phone
-      ? localStorage.setItem("phone", json.phone)
-      : localStorage.setItem("phone", "No contact info yet.");
-    json.intro
-      ? localStorage.setItem("intro", json.intro)
-      : localStorage.setItem("intro", "No introduction yet.");
-    history.push("/profile");
+    localStorage.setItem("kotiKokkiID", json.userId);
+    history.push("/profile?" + json.userId);
     window.location.reload();
   }
 };
@@ -56,5 +48,3 @@ export const Logout = (history) => {
 export const UserIsAuthenticated = () => {
   return localStorage.getItem("kotiKokkiToken");
 };
-
-export const currentUserIsCurrentProfile = () => {};

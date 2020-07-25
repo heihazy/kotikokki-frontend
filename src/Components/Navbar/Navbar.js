@@ -5,8 +5,8 @@ import {
   Logout,
 } from "../../Services/authenticationService";
 import kotikokki from "../../kotikokki-logo.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
 import { useHistory } from "react-router-dom";
 
@@ -26,8 +26,8 @@ const Navbar = () => {
             <Link to="/howitworks">
               <li>How it works</li>
             </Link>
-            <Link to="/blog">
-              <li>Blog</li>
+            <Link to="/chefs">
+              <li>Chefs</li>
             </Link>
             <Link to="/contact">
               <li>Contact</li>
@@ -50,9 +50,9 @@ const Navbar = () => {
           </ul>
         </nav>
       </div>
-      <span className="shopping-bag">
+      {/* <span className="shopping-bag">
         <FontAwesomeIcon icon={faShoppingBag} />
-      </span>
+      </span> */}
     </div>
   );
 };
