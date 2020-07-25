@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Kotikokki front-end
-Platfrom for home cooks
 
+Platfrom for home cooks.
+
+Online: https://kotikokki-frontend.herokuapp.com/
