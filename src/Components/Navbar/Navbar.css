@@ -12,7 +12,7 @@
 }
 
 .nav-items li:hover {
-  border-bottom: 3px solid #F5B8D2;
+  border-bottom: 3px solid #f5b8d2;
 }
 
 .nav-items nav ul {
@@ -22,7 +22,7 @@
 }
 
 .logo {
-  max-width: 50%;
+  max-width: 40%;
 }
 
 .logo:hover {
@@ -36,6 +36,7 @@
   align-content: center;
   width: 100%;
   border-bottom: 1px solid #c2c1c1;
+  padding: 1rem;
 }
 
 .shopping-bag {
@@ -46,5 +47,5 @@
 
 .shopping-bag:hover {
   cursor: pointer;
-  color: #F5B8D2;
+  color: #f5b8d2;
 }
