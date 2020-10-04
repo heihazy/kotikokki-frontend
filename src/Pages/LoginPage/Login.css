@@ -45,6 +45,11 @@
   cursor: pointer;
 }
 
+.form .google-log-in {
+  background: rgb(27, 116, 189);
+  margin-top: 20px;
+}
+
 .form button:hover,
 .form button:active,
 .form button:focus {

@@ -15,6 +15,7 @@ import Howitworks from "./Pages/HowItWorks/Howitworks";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import Profile from "./Pages/Profile/Profile";
+import ForChef from './Pages/ForChef/ForChef';
 const App = () => {
   return (
     <div id="app">
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/login" component={LoginPage} />
             <Route path="/logout" render={() => <Redirect to="/login" />} />
             <Route path="/signup" component={SignupPage} />
+            <Route path="/forchef" component={ForChef}/>
             <Route path="/profile" component={Profile} />
           </Switch>
         </main>

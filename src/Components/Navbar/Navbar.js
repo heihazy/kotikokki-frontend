@@ -32,6 +32,9 @@ const Navbar = () => {
             <Link to="/contact">
               <li>Contact</li>
             </Link>
+            <Link to='/forchef'>
+              <li>Sign up as chef</li>
+            </Link>
             {UserIsAuthenticated() && (
               <Link to="/logout" onClick={() => Logout(history)}>
                 <li>Logout</li>

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./../LoginPage/Login.css";
-import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
+import "../LoginPage/Login.css";
+import { auth, createChefProfileDocument} from "../../firebase/firebase.utils";
 
-class SignupPage extends Component {
+class ForChef extends Component {
   constructor() {
     super();
 
@@ -24,7 +24,7 @@ class SignupPage extends Component {
         password
       );
 
-      await createUserProfileDocument(user, { name });
+      await createChefProfileDocument(user, { name });
 
       //this clears the form
       this.setState({
@@ -86,4 +86,4 @@ class SignupPage extends Component {
   );
   }
 }
-export default SignupPage;
+export default ForChef;

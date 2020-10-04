@@ -1,33 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import {firestore} from '../../firebase/firebase.utils'
 import "./Chefs.css";
 
 const Chefs = () => {
   const [chefs, setChefs] = useState();
 
   useEffect(() => {
-    const getChefs = async () => {
-      const result = await fetch(
-        "https://kotikokki.herokuapp.com/api/v1/users",
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
+    firestore.collection('chefs').get().then((result)=>{
+    console.log(result);
+          // const chefList = result.data.map((chef) => (
+          //   <Link key={chef._id} to={"/profile?" + chef._id}>
+          //     <li>{chef.name}</li>
+          //   </Link>
+          // ));
+          // setChefs(chefList);
         }
-      );
-      const json = await result.json();
-      if (json.status !== "success") {
-        alert("Sorry, could not get chefs. Try again later.");
-      } else {
-        const chefList = json.data.users.map((user) => (
-          <Link key={user._id} to={"/profile?" + user._id}>
-            <li>{user.name}</li>
-          </Link>
-        ));
-        setChefs(chefList);
-      }
-    };
-    getChefs();
+    
+    )
+    
   }, []);
 
   return (

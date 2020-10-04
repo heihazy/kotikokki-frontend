@@ -1,59 +1,70 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import "./Login.css";
-import { Login } from "../../Services/authenticationService";
-import { useHistory } from "react-router-dom";
+import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 
-const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const history = useHistory();
 
-  const handleSubmit = async (event) => {
+class LoginPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: "",
+    };
+  }
+
+  submitHandler = async (event) => {
     event.preventDefault();
-    const form = document.querySelector("form");
-    if (form.checkValidity()) {
-      Login(email, password, history);
-    } else {
-      form.reportValidity();
+
+    const { email, password } = this.state;
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({ email: "", password: "" });
+    } catch (error) {
+      console.log(error);
     }
   };
 
-  const validateForm = () => {
-    return email.length > 0 && password.length > 0;
+  changeHandler = (event) => {
+    const { value, name } = event.target;
+    this.setState({ [name]: value });
   };
 
-  return (
-    <div className="login-page">
+  render(){
+    return (
+      <div className="login-page">
       <div className="form">
-        <form className="login-form">
-          <input
-            type="email"
-            placeholder="email"
-            autoFocus
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            minLength="4"
-          />
-          <button
-            type="submit"
-            onClick={handleSubmit}
-            disabled={!validateForm()}
-          >
-            login
-          </button>
-          <p className="message">
-            Not registered? <a href="/signup">Create an account</a>
-          </p>
-        </form>
+      <form className="login-form">
+      <input
+      type="email"
+      placeholder="email"
+      autoFocus
+      value={this.state.email}
+      onChange={this.changeHandler}
+      />
+      <input
+      type="password"
+      placeholder="password"
+      value={this.state.password}
+      onChange={this.changeHandler}
+      minLength="4"
+      />
+      <button
+      type="submit"
+      onClick={this.submitHandler}
+      >
+      login
+      </button>
+      <button className='google-log-in' onClick={signInWithGoogle}>Log in with Google</button>
+      <p className="message">
+      Not registered? <a href="/signup">Create an account</a>
+      </p>
+      </form>
       </div>
-    </div>
-  );
-};
-
+      </div>
+      );
+      
+  }
+  
+}
 export default LoginPage;
