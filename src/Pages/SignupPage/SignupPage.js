@@ -7,13 +7,14 @@ const SignupPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [isChef, setIsChef]=useState(false);
   const history = useHistory();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = document.querySelector("form");
     if (form.checkValidity()) {
-      Signup(email, password, name, history);
+      Signup(email, password, name, history, isChef);
     } else {
       form.reportValidity();
     }
@@ -48,6 +49,11 @@ const SignupPage = () => {
             onChange={(e) => setPassword(e.target.value)}
             minLength="4"
           />
+          <div className="check-chef">
+          <input type="checkbox" checked={isChef} onChange={()=>setIsChef(!isChef)}/>
+          <label htmlFor="I am a homecook"/>
+          </div>
+
           <button
             type="submit"
             onClick={handleSubmit}
