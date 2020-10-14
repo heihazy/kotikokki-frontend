@@ -51,7 +51,7 @@ const SignupPage = () => {
           />
           <div className="check-chef">
           <input type="checkbox" checked={isChef} onChange={()=>setIsChef(!isChef)}/>
-          <label htmlFor="I am a homecook"/>
+          <label htmlFor='is-chef'>I am a homecook</label>
           </div>
 
           <button

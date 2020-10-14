@@ -15,6 +15,7 @@ import Howitworks from "./Pages/HowItWorks/Howitworks";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import Profile from "./Pages/Profile/Profile";
+import ShopPage from './Pages/ShopPage/ShopPage';
 const App = () => {
   return (
     <div id="app">
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/logout" render={() => <Redirect to="/login" />} />
             <Route path="/signup" component={SignupPage} />
             <Route path="/profile" component={Profile} />
+            <Route path="/shop" component={ShopPage} />
           </Switch>
         </main>
         <Footer />

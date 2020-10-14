@@ -1,6 +1,6 @@
-export const Signup = async (email, password, name, history) => {
+export const Signup = async (email, password, name, history, isChef) => {
   const result = await fetch(
-    "https://kotikokki.herokuapp.com/api/v1/users/signup",
+    "https://localhost:8000/api/v1/users/signup",
     {
       method: "POST",
       headers: {
@@ -10,6 +10,7 @@ export const Signup = async (email, password, name, history) => {
         email: email,
         password: password,
         name: name,
+        isChef:isChef
       }),
     }
   );
@@ -24,7 +25,7 @@ export const Signup = async (email, password, name, history) => {
 
 export const Login = async (email, password, history) => {
   const result = await fetch(
-    "https://kotikokki.herokuapp.com/api/v1/users/login",
+    "https://localhost:8000/api/v1/users/login",
     {
       method: "POST",
       headers: {
