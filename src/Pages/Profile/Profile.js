@@ -5,7 +5,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Profile = () => {
   const [currentProfile] = useState(window.location.search.substring(1));
-  const [name, setName] = useState();
+  const [name, setName] = useState("");
   const [intro, setIntro] = useState();
   const [dishes, setDishes] = useState([]);
   const [phone, setPhone] = useState();
@@ -13,7 +13,7 @@ const Profile = () => {
   useEffect(() => {
     const getProfileInfo = async () => {
       const result = await fetch(
-        "https://localhost:8000/api/v1/users/" + currentProfile,
+        "http://localhost:8000/api/v1/users/" + currentProfile,
         {
           headers: {
             "Content-Type": "application/json",
@@ -66,7 +66,7 @@ const Profile = () => {
 
   const saveContent = async () => {
     const result = await fetch(
-      "https://localhost:8000/api/v1/users/" + currentProfile,
+      "http://localhost:8000/api/v1/users/" + currentProfile,
       {
         method: "PATCH",
         headers: {

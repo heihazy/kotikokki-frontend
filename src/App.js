@@ -16,6 +16,8 @@ import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import Profile from "./Pages/Profile/Profile";
 import ShopPage from './Pages/ShopPage/ShopPage';
+
+
 const App = () => {
   return (
     <div id="app">
@@ -28,7 +30,7 @@ const App = () => {
             <Route path="/howitworks" component={Howitworks} />
             <Route path="/chefs" component={Chefs} />
             <Route path="/contact" component={Contact} />
-            <Route path="/login" component={LoginPage} />
+            <Route exact path="/login" component={LoginPage} />
             <Route path="/logout" render={() => <Redirect to="/login" />} />
             <Route path="/signup" component={SignupPage} />
             <Route path="/profile" component={Profile} />
