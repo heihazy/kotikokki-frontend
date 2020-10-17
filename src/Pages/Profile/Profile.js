@@ -5,9 +5,9 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Profile = () => {
   const [currentProfile] = useState(window.location.search.substring(1));
-  const [name, setName] = useState("");
+  const [name, setName] = useState();
   const [intro, setIntro] = useState();
-  const [dishes, setDishes] = useState([]);
+  const [dishes, setDishes] = useState();
   const [phone, setPhone] = useState();
 
   useEffect(() => {
@@ -97,6 +97,22 @@ const Profile = () => {
         .querySelectorAll(".fa-trash")
         .forEach((icon) => (icon.style.display = "none"));
     }
+
+    const data = await fetch(
+      "http://localhost:8000/api/v1/dishes/" + currentProfile,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: document.querySelector(".profile-name").textContent,
+          intro: document.querySelector(".profile-intro").textContent,
+          phone: document.querySelector(".profile-phone").textContent,
+          dishes: dishes,
+        }),
+      }
+    )
   };
 
   const addNewDish = () => {
@@ -124,36 +140,43 @@ const Profile = () => {
           <label className='dish-form' >
             Name:
           <input
-            className="add-dish-input"
+            className="add-dish-input dish-name" 
             placeholder="Add a name"
           />
           </label>
           <label className='dish-form' >
             Description:
           <input
-            className="add-dish-input"
+            className="add-dish-input dish-description"
             placeholder="Add description"
           />
           </label>
           <label className='dish-form' >
             Price:
           <input
-            className="add-dish-input"
+            className="add-dish-input dish-price"
             placeholder="Add price"
           />
           </label>
           <label className='dish-form' >
             Address:
           <input
-            className="add-dish-input"
+            className="add-dish-input dish-address"
             placeholder="Add address"
           />
           </label>
           <label className='dish-form' >
             Image URL:
           <input
-            className="add-dish-input"
+            className="add-dish-input dish-img"
             placeholder="Add image"
+          />
+          </label>
+          <label className='dish-form dish-date' >
+            Available until:
+          <input type="date"
+            className="add-dish-input dish-img"
+            placeholder='Enter date'
           />
           </label>
           </div>
