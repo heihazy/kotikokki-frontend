@@ -6,7 +6,7 @@ const ShopPage = () => {
     useEffect(()=>{
         const getDishes = async ()=>{
             const result = await fetch(
-                "http://localhost:8000/api/v1/users",
+                "http://localhost:8000/api/v1/dishes",
                 {
                     headers:{
                         "Content-Type":"application/json",
@@ -17,9 +17,9 @@ const ShopPage = () => {
             if (json.status !== "success") {
                 alert("Sorry, could not get dishes. Try again later.");
               } else {
-                const dishList = json.data.users.map((item) => (
+                const dishList = json.data.dishes.map((item) => (
                   <Link key={item._id}>
-                    <li>{item.dishes}</li>
+                    <li>{item.name}</li>
                   </Link>
                 ));
                 setRenderDish(dishList);
