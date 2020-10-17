@@ -1,6 +1,7 @@
 import React from 'react';
 import './ShopCard.css';
-const ShopCard = ({name, price, imageUrl}) => {
+const ShopCard = ({item}) => {
+    const {name, price, imageUrl} = item;
     return (
         <div className='shop-item'>
             <div className='image' style={{backgroundImage:`url(${imageUrl})`}}/>

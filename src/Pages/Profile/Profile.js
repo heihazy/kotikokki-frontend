@@ -54,6 +54,8 @@ const Profile = () => {
     document.querySelector(".edit-profile-button").hidden = true;
     document.querySelector(".save-profile-button").hidden = false;
     document.querySelector(".add-dish-wrapper").style.display = "block";
+    document.querySelector(".dish-form").style.display = "block";
+    document.querySelector(".add-dish-form").style.display = "block";
     document.querySelector(".add-dish-input").value = "";
     document
       .querySelectorAll(".fa-trash")
@@ -118,11 +120,44 @@ const Profile = () => {
         <h1 className="headline">Menu</h1>
         <ul className="dish-list">{dishes && createDishList()}</ul>
         <div className="add-dish-wrapper" hidden>
+          <div className='add-dish-form' >
+          <label className='dish-form' >
+            Name:
           <input
-            hidden
             className="add-dish-input"
-            placeholder="Add a dish"
-          ></input>
+            placeholder="Add a name"
+          />
+          </label>
+          <label className='dish-form' >
+            Description:
+          <input
+            className="add-dish-input"
+            placeholder="Add description"
+          />
+          </label>
+          <label className='dish-form' >
+            Price:
+          <input
+            className="add-dish-input"
+            placeholder="Add price"
+          />
+          </label>
+          <label className='dish-form' >
+            Address:
+          <input
+            className="add-dish-input"
+            placeholder="Add address"
+          />
+          </label>
+          <label className='dish-form' >
+            Image URL:
+          <input
+            className="add-dish-input"
+            placeholder="Add image"
+          />
+          </label>
+          </div>
+          
           <button className="add-dish-button" onClick={() => addNewDish()}>
             Add
           </button>
