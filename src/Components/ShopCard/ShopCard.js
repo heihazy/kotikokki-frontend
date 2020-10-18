@@ -1,5 +1,8 @@
 import React from 'react';
 import './ShopCard.css';
+import { addItem } from "../../redux/cart/cart.action";
+import { connect } from "react-redux";
+
 const ShopCard = ({item}) => {
     const {name, price, imageUrl} = item;
     return (
@@ -9,9 +12,13 @@ const ShopCard = ({item}) => {
                 <span className='name'>{name}</span>
                 <span className='price'>{price}</span>
             </div>
-            <button className='add-btn'>ADD TO CART</button>
+            <button className='add-btn' onClick={()=>addItem(item)}>ADD TO CART</button>
         </div>
     );
 }
 
-export default ShopCard;
+const mapDispatchToProps = (dispatch) => ({
+    addItem: (item) => dispatch(addItem(item)),
+});
+
+export default connect(null, mapDispatchToProps)(ShopCard);

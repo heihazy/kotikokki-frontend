@@ -2,6 +2,7 @@ import "./Profile.css";
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import axios from 'axios';
 
 const Profile = () => {
   const [currentProfile] = useState(window.location.search.substring(1));
@@ -98,22 +99,20 @@ const Profile = () => {
         .forEach((icon) => (icon.style.display = "none"));
     }
 
-    const data = await fetch(
-      "http://localhost:8000/api/v1/dishes/" + currentProfile,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: document.querySelector(".profile-name").textContent,
-          intro: document.querySelector(".profile-intro").textContent,
-          phone: document.querySelector(".profile-phone").textContent,
-          dishes: dishes,
-        }),
+    let config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+     axios
+      .patch(
+        "http://localhost:8000/api/v1/dishes",
+        config
+      ).then((data)=>{
+        
+      })
+       
       }
-    )
-  };
 
   const addNewDish = () => {
     const newDishValue = document.querySelector(".add-dish-input").value;
