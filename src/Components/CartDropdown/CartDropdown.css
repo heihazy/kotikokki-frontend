@@ -24,7 +24,7 @@
     overflow: scroll;
 }
 
-button {
+.checkout-btn {
     margin-top: auto;
     width: 80%;
     opacity: 0.7;
@@ -51,7 +51,7 @@ button {
     
 }
 
-button:hover{
+.checkout-btn:hover{
     opacity: 0.85;
     display: flex;
     background-color: white;

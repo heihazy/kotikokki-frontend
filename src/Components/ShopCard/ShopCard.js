@@ -3,7 +3,7 @@ import './ShopCard.css';
 import { addItem } from "../../redux/cart/cart.action";
 import { connect } from "react-redux";
 
-const ShopCard = ({item}) => {
+const ShopCard = ({item, addItem}) => {
     const {name, price, imageUrl} = item;
     return (
         <div className='shop-item'>

@@ -99,18 +99,18 @@ const Profile = () => {
         .forEach((icon) => (icon.style.display = "none"));
     }
 
-    let config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-     axios
-      .patch(
-        "http://localhost:8000/api/v1/dishes",
-        config
-      ).then((data)=>{
+    // let config = {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // };
+    //  axios
+    //   .patch(
+    //     "http://localhost:8000/api/v1/dishes",
+    //     config
+    //   ).then((data)=>{
         
-      })
+    //   })
        
       }
 

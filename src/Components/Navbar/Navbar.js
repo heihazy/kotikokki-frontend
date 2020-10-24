@@ -23,9 +23,9 @@ const Navbar = ({hidden}) => {
       <div className="nav-items">
         <nav>
           <ul>
-            <Link to="/about">
+            {/* <Link to="/about">
               <li>About us</li>
-            </Link>
+            </Link> */}
             <Link to="/howitworks">
               <li>How it works</li>
             </Link>
@@ -35,9 +35,9 @@ const Navbar = ({hidden}) => {
             <Link to='/shop'>
               <li>Order</li>
             </Link>
-            <Link to="/contact">
+            {/* <Link to="/contact">
               <li>Contact</li>
-            </Link>
+            </Link> */}
             {UserIsAuthenticated() && (
               <Link to="/logout" onClick={() => Logout(history)}>
                 <li>Logout</li>

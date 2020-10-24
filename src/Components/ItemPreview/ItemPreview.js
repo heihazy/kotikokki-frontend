@@ -8,7 +8,7 @@ const ItemPreview = ({items}) => {
     useEffect(()=>{
         const getDishes = async ()=>{
             const result = await fetch(
-                "http://localhost:8000/api/v1/dishes",
+                "http://localhost:8000/api/v1/users/dishes",
                 {
                     headers:{
                         "Content-Type":"application/json",
