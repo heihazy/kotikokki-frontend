@@ -5,12 +5,15 @@ import {
   Logout,
 } from "../../Services/authenticationService";
 import kotikokki from "../../kotikokki-logo.png";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
 import { useHistory } from "react-router-dom";
+import CartIcon from '../CartIcon/CartIcon';
+import CartDropdown from '../CartDropdown/CartDropdown';
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectCartHidden } from "../../redux/cart/cart.selectors";
 
-const Navbar = () => {
+const Navbar = ({hidden}) => {
   const history = useHistory();
   return (
     <div className="main-nav">
@@ -20,18 +23,21 @@ const Navbar = () => {
       <div className="nav-items">
         <nav>
           <ul>
-            <Link to="/about">
+            {/* <Link to="/about">
               <li>About us</li>
-            </Link>
+            </Link> */}
             <Link to="/howitworks">
               <li>How it works</li>
             </Link>
             <Link to="/chefs">
               <li>Chefs</li>
             </Link>
-            <Link to="/contact">
-              <li>Contact</li>
+            <Link to='/shop'>
+              <li>Order</li>
             </Link>
+            {/* <Link to="/contact">
+              <li>Contact</li>
+            </Link> */}
             {UserIsAuthenticated() && (
               <Link to="/logout" onClick={() => Logout(history)}>
                 <li>Logout</li>
@@ -47,14 +53,16 @@ const Navbar = () => {
                 <li>My Profile</li>
               </Link>
             )}
+            <CartIcon/>
           </ul>
+          {hidden ? null : <CartDropdown/>}
         </nav>
       </div>
-      {/* <span className="shopping-bag">
-        <FontAwesomeIcon icon={faShoppingBag} />
-      </span> */}
     </div>
   );
 };
 
-export default Navbar;
+const mapStateToProps = createStructuredSelector({
+  hidden: selectCartHidden,
+});
+export default connect(mapStateToProps)(Navbar);

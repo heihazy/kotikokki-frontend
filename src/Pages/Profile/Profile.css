@@ -60,10 +60,17 @@ h1:last-of-type {
   margin-top: 3rem;
 }
 
-.add-dish-button,
-.add-dish-input {
-  display: inline;
+.add-dish-form{
+  display: flex;
+  flex-direction: column;
 }
+
+.dish-form{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 
 .add-dish-button {
   background-color: #72b340;

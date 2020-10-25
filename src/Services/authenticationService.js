@@ -1,4 +1,4 @@
-export const Signup = async (email, password, name, history) => {
+export const Signup = async (email, password, name, history, isChef) => {
   const result = await fetch(
     "https://kotikokki.herokuapp.com/api/v1/users/signup",
     {
@@ -10,6 +10,7 @@ export const Signup = async (email, password, name, history) => {
         email: email,
         password: password,
         name: name,
+        isChef:isChef
       }),
     }
   );

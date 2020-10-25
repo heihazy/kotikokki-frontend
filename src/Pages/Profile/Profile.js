@@ -2,13 +2,19 @@ import "./Profile.css";
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { v4 as uuidv4 } from "uuid";
 
 const Profile = () => {
   const [currentProfile] = useState(window.location.search.substring(1));
   const [name, setName] = useState();
   const [intro, setIntro] = useState();
-  const [dishes, setDishes] = useState([]);
+  const [dishes, setDishes] = useState();
   const [phone, setPhone] = useState();
+  const [dishName, setDishName] = useState();
+  const [dishPrice, setDishPrice] = useState();
+  const [dishDescription, setDishDescription] = useState();
+  const [dishImageUrl, setDishImageUrl] = useState();
+  const [dishAvailability, setDishAvailability] = useState();
 
   useEffect(() => {
     const getProfileInfo = async () => {
@@ -37,23 +43,12 @@ const Profile = () => {
     return localStorage.getItem("kotiKokkiID") === currentProfile;
   };
 
-  const deleteDish = (e) => {
-    const dish = e.target.parentElement.parentElement.textContent;
-    setDishes(dishes.filter((item) => item !== dish));
-  };
-
-  const createDishList = () =>
-    dishes.map((dish) => (
-      <li key={dish} className="content-editable">
-        {dish}
-        <FontAwesomeIcon icon={faTrash} onClick={(e) => deleteDish(e)} />
-      </li>
-    ));
-
   const editContent = () => {
     document.querySelector(".edit-profile-button").hidden = true;
     document.querySelector(".save-profile-button").hidden = false;
     document.querySelector(".add-dish-wrapper").style.display = "block";
+    document.querySelector(".dish-form").style.display = "block";
+    document.querySelector(".add-dish-form").style.display = "block";
     document.querySelector(".add-dish-input").value = "";
     document
       .querySelectorAll(".fa-trash")
@@ -65,6 +60,18 @@ const Profile = () => {
   };
 
   const saveContent = async () => {
+    let newDishes = dishes;
+    if (dishName) {
+      const dish = {
+        id: uuidv4(),
+        name: dishName,
+        description: dishDescription,
+        dishImageUrl: dishImageUrl,
+        price: dishPrice,
+        availability: dishAvailability,
+      };
+      newDishes = [...dishes, dish];
+    }
     const result = await fetch(
       "https://kotikokki.herokuapp.com/api/v1/users/" + currentProfile,
       {
@@ -76,7 +83,7 @@ const Profile = () => {
           name: document.querySelector(".profile-name").textContent,
           intro: document.querySelector(".profile-intro").textContent,
           phone: document.querySelector(".profile-phone").textContent,
-          dishes: dishes,
+          dishes: newDishes,
         }),
       }
     );
@@ -84,6 +91,7 @@ const Profile = () => {
     if (json.status !== "success") {
       alert("Unsuccesfull edit.");
     } else {
+      setDishes(newDishes);
       [...document.querySelectorAll(".content-editable")].forEach((element) => {
         element.setAttribute("contenteditable", false);
         element.classList.remove("edit-mode");
@@ -97,10 +105,26 @@ const Profile = () => {
     }
   };
 
-  const addNewDish = () => {
-    const newDishValue = document.querySelector(".add-dish-input").value;
-    document.querySelector(".add-dish-input").value = "";
-    setDishes((currentDishes) => [...currentDishes, newDishValue]);
+  const deleteDish = async (id) => {
+    const newDishes = dishes.filter((dish) => dish.id !== id);
+    const result = await fetch(
+      "https://kotikokki.herokuapp.com/api/v1/users/" + currentProfile,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          dishes: [newDishes],
+        }),
+      }
+    );
+    const json = await result.json();
+    if (json.status !== "success") {
+      alert("Unsuccesfully delted dish");
+    } else {
+      setDishes(newDishes);
+    }
   };
 
   return (
@@ -116,16 +140,62 @@ const Profile = () => {
           {phone}
         </p>
         <h1 className="headline">Menu</h1>
-        <ul className="dish-list">{dishes && createDishList()}</ul>
+        <ul className="dish-list">
+          {dishes &&
+            dishes.map((dish) => (
+              <li key={dish.id}>
+                {dish.name}
+                <FontAwesomeIcon
+                  icon={faTrash}
+                  onClick={() => deleteDish(dish.id)}
+                />
+              </li>
+            ))}
+        </ul>
         <div className="add-dish-wrapper" hidden>
-          <input
-            hidden
-            className="add-dish-input"
-            placeholder="Add a dish"
-          ></input>
-          <button className="add-dish-button" onClick={() => addNewDish()}>
-            Add
-          </button>
+          <div className="add-dish-form">
+            <label className="dish-form">
+              Name:
+              <input
+                className="add-dish-input dish-name"
+                placeholder="Add a name"
+                onChange={(e) => setDishName(e.target.value)}
+              />
+            </label>
+            <label className="dish-form">
+              Description:
+              <input
+                className="add-dish-input dish-description"
+                placeholder="Add description"
+                onChange={(e) => setDishDescription(e.target.value)}
+              />
+            </label>
+            <label className="dish-form">
+              Price:
+              <input
+                className="add-dish-input dish-price"
+                placeholder="Add price"
+                onChange={(e) => setDishPrice(e.target.value)}
+              />
+            </label>
+            <label className="dish-form">
+              Image URL:
+              <input
+                className="add-dish-input dish-img"
+                placeholder="Add image"
+                onChange={(e) => setDishImageUrl(e.target.value)}
+              />
+            </label>
+            <label className="dish-form dish-date">
+              Available until:
+              <input
+                type="date"
+                className="add-dish-input dish-img"
+                placeholder="Enter date"
+                onChange={(e) => setDishAvailability(e.target.value)}
+              />
+            </label>
+          </div>
         </div>
         {userIsProfileOwner() && (
           <div>
@@ -148,5 +218,4 @@ const Profile = () => {
     </div>
   );
 };
-
 export default Profile;
