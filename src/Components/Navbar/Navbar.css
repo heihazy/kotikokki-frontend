@@ -1,6 +1,6 @@
 .nav-items li {
   list-style-type: none;
-  color: #ffffff;
+  color: #333333;
   padding-right: 1rem;
   margin-right: 4rem;
   font-size: 1.5rem;
@@ -32,7 +32,6 @@
 .main-nav {
   display: flex;
   justify-content: space-around;
-  background-color: rgb(73, 72, 72);
   align-content: center;
   width: 100%;
   border-bottom: 1px solid #c2c1c1;

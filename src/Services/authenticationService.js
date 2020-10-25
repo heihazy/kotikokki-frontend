@@ -1,6 +1,6 @@
 export const Signup = async (email, password, name, history, isChef) => {
   const result = await fetch(
-    "http://localhost:8000/api/v1/users/signup",
+    "https://kotikokki.herokuapp.com/api/v1/users/signup",
     {
       method: "POST",
       headers: {
@@ -25,7 +25,7 @@ export const Signup = async (email, password, name, history, isChef) => {
 
 export const Login = async (email, password, history) => {
   const result = await fetch(
-    "http://localhost:8000/api/v1/users/login",
+    "https://kotikokki.herokuapp.com/api/v1/users/login",
     {
       method: "POST",
       headers: {

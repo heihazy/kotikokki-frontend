@@ -8,7 +8,7 @@ const Chefs = () => {
   useEffect(() => {
     const getChefs = async () => {
       const result = await fetch(
-        "http://localhost:8000/api/v1/users",
+        "https://kotikokki.herokuapp.com/api/v1/users/",
         {
           headers: {
             "Content-Type": "application/json",
