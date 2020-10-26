@@ -38,7 +38,7 @@ const App = () => {
             <Route exact path="/checkout" component={Checkout}/>
           </Switch>
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </div>
   );
