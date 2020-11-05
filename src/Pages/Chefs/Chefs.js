@@ -20,9 +20,11 @@ const Chefs = () => {
         alert("Sorry, could not get chefs. Try again later.");
       } else {
         const chefList = json.data.users.map((user) => (
-          <Link key={user._id} to={"/profile?" + user._id}>
-            <li>{user.name}</li>
-          </Link>
+          <div className="chef-container">
+            <Link key={user._id} to={"/profile?" + user._id}>
+              <li>{user.name}</li>
+            </Link>
+          </div>
         ));
         setChefs(chefList);
       }
@@ -32,7 +34,6 @@ const Chefs = () => {
 
   return (
     <div className="chef-listing-page">
-      Chef listing
       <ul className="chef-list">{chefs}</ul>
     </div>
   );

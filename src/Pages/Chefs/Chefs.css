@@ -1,5 +1,31 @@
-.chef-listing-page {
+.chef-list {
+  display: grid;
+  grid-gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  padding-top: 2rem;
 }
 
-.chef-list {
+.chef-container li {
+  background-color: #72b340;
+  padding: 20px;
+  width: 30%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5%;
+}
+
+.chef-container li:hover {
+  background-color: #f5b8d2;
+  color: #333333;
+}
+
+.chef-container a {
+  list-style: none;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
 }
