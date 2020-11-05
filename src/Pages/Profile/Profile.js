@@ -5,7 +5,11 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { v4 as uuidv4 } from "uuid";
 
 const Profile = () => {
-  const [currentProfile] = useState(window.localStorage.getItem("kotiKokkiID"));
+  const [currentProfile] = useState(
+    window.location.search.substring(1)
+      ? window.location.search.substring(1)
+      : window.localStorage.getItem("kotiKokkiID")
+  );
   const [name, setName] = useState();
   const [intro, setIntro] = useState();
   const [dishes, setDishes] = useState();

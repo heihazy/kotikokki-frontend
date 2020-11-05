@@ -10,6 +10,8 @@
 }
 
 .preview {
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  padding: 40px;
 }
