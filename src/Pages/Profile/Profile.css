@@ -60,17 +60,27 @@ h1:last-of-type {
   margin-top: 3rem;
 }
 
-.add-dish-form{
-  display: flex;
-  flex-direction: column;
+.add-dish-form {
+  grid-gap: 2rem;
 }
 
-.dish-form{
+.dish-form {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.dish-form input {
+  margin-left: 2rem;
+  padding: 10px;
+  border-radius: 5%;
+  border: 1px solid #72b340;
+}
+
+.dish-form input:focus {
+  outline: none;
+  border: 2px solid #f5b8d2;
+}
 
 .add-dish-button {
   background-color: #72b340;

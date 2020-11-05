@@ -13,7 +13,7 @@ const ShopCard = ({ item, addItem }) => {
       />
       <div className="card-footer">
         <span className="name">{name}</span>
-        <span className="price">{price}</span>
+        <span className="price">€ {price}</span>
       </div>
       <button className="add-btn" onClick={() => addItem(item)}>
         ADD TO CART

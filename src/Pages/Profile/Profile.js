@@ -5,7 +5,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { v4 as uuidv4 } from "uuid";
 
 const Profile = () => {
-  const [currentProfile] = useState(window.location.search.substring(1));
+  const [currentProfile] = useState(window.localStorage.getItem("kotiKokkiID"));
   const [name, setName] = useState();
   const [intro, setIntro] = useState();
   const [dishes, setDishes] = useState();
@@ -18,6 +18,7 @@ const Profile = () => {
 
   useEffect(() => {
     const getProfileInfo = async () => {
+      console.log(currentProfile);
       const result = await fetch(
         "https://kotikokki.herokuapp.com/api/v1/users/" + currentProfile,
         {
@@ -30,6 +31,8 @@ const Profile = () => {
       if (json.status !== "success") {
         alert("Could not get this profile. Try another one.");
       } else {
+        console.log(currentProfile);
+        console.log(json);
         setName(json.data.user.name);
         setIntro(json.data.user.intro);
         setPhone(json.data.user.phone);
@@ -47,8 +50,8 @@ const Profile = () => {
     document.querySelector(".edit-profile-button").hidden = true;
     document.querySelector(".save-profile-button").hidden = false;
     document.querySelector(".add-dish-wrapper").style.display = "block";
-    document.querySelector(".dish-form").style.display = "block";
-    document.querySelector(".add-dish-form").style.display = "block";
+    document.querySelector(".dish-form").style.display = "flex";
+    document.querySelector(".add-dish-form").style.display = "grid";
     document.querySelector(".add-dish-input").value = "";
     document
       .querySelectorAll(".fa-trash")
