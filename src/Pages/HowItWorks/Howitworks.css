@@ -1,17 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Amiri&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Handlee&display=swap");
 .howitworks-img {
-  max-width: 80%;
-  justify-self: end;
+  width: 60%;
+  justify-self: center;
 }
 
 .howitworks {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  padding: 2rem;
 }
 
 .howitworks-text {
-  padding-left: 1rem;
   justify-self: center;
 }
 

@@ -15,31 +15,27 @@ import Howitworks from "./Pages/HowItWorks/Howitworks";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import Profile from "./Pages/Profile/Profile";
-import ShopPage from './Pages/ShopPage/ShopPage';
-import Checkout from './Pages/Checkout/Checkout';
+import ShopPage from "./Pages/ShopPage/ShopPage";
+import Checkout from "./Pages/Checkout/Checkout";
 
 const App = () => {
   return (
     <div id="app">
-      <Router>
-        <Navbar />
-        <main>
-          <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route path="/about" component={Homepage} />
-            <Route path="/howitworks" component={Howitworks} />
-            <Route path="/chefs" component={Chefs} />
-            {/* <Route path="/contact" component={Contact} /> */}
-            <Route exact path="/login" component={LoginPage} />
-            <Route path="/logout" render={() => <Redirect to="/login" />} />
-            <Route path="/signup" component={SignupPage} />
-            <Route path="/profile" component={Profile} />
-            <Route path="/shop" component={ShopPage} />
-            <Route exact path="/checkout" component={Checkout}/>
-          </Switch>
-        </main>
-        {/* <Footer /> */}
-      </Router>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Homepage} />
+        <Route path="/about" component={Homepage} />
+        <Route path="/howitworks" component={Howitworks} />
+        <Route path="/chefs" component={Chefs} />
+        {/* <Route path="/contact" component={Contact} /> */}
+        <Route exact path="/login" component={LoginPage} />
+        <Route path="/logout" render={() => <Redirect to="/login" />} />
+        <Route path="/signup" component={SignupPage} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/shop" component={ShopPage} />
+        <Route exact path="/checkout" component={Checkout} />
+      </Switch>
+      {/* <Footer /> */}
     </div>
   );
 };

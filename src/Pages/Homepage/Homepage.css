@@ -1,32 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Amiri&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Handlee&display=swap");
-.homepage-img {
-  width: 70%;
-}
 
 .homepage {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  height: 100vh;
-  justify-items: center;
+  padding-top: 8rem;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column-reverse;
   align-items: center;
-  padding: 1rem;
+  justify-content: center;
 }
 
+.homepage-img {
+  width: 100%;
+}
 .homepage-text {
-  padding-left: 1rem;
-  justify-self: center;
+  padding: 0 20px;
 }
 
-.headline {
+.homepage .headline {
+  font-size: 2rem;
   font-family: "Handlee", cursive;
-  font-size: 3rem;
 }
-
 .homepage-content {
   font-family: "Amiri", serif;
   font-weight: lighter;
-  font-size: 1.5rem;
+  font-size: 16px;
 }
 
 .start-button {
@@ -36,19 +34,44 @@
   border: none;
 }
 
-.start-button:hover {
-  cursor: pointer;
-  background-color: #f5b8d2;
-}
-
-.start-button a:hover {
-  color: black;
-}
-
 .start-button a {
   color: #ffffff;
   text-decoration: none;
   font-family: "Handlee", cursive;
   font-weight: bold;
   font-size: 1.3rem;
+}
+
+@media (min-width: 1100px) {
+  .homepage-img {
+    width: 60%;
+  }
+
+  .homepage {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem;
+  }
+
+  .homepage-text {
+    padding-left: 1rem;
+    justify-self: center;
+  }
+
+  .headline {
+    font-size: 3rem;
+  }
+
+  .homepage-content {
+    font-size: 1.5rem;
+  }
+
+  .start-button:hover {
+    cursor: pointer;
+    background-color: #f5b8d2;
+  }
+
+  .start-button a:hover {
+    color: black;
+  }
 }
