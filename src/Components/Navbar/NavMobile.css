@@ -7,7 +7,8 @@
   position: fixed;
   width: 100%;
   z-index: 10;
-  background-color: rgba(255, 247, 250, 0.8);
+  top: 0;
+  background-color: rgba(247, 239, 242, 0.733);
 }
 
 .logo-mobile {

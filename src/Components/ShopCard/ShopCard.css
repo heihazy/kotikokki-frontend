@@ -25,12 +25,12 @@
   font-size: 18px;
 }
 
-.name {
+.card-footer .name {
   width: 90%;
   margin-bottom: 15px;
 }
 
-.price {
+.card-footer .price {
   width: 10%;
 }
 

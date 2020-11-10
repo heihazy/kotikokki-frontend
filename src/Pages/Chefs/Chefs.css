@@ -3,29 +3,40 @@
   grid-gap: 1rem;
   align-items: center;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  padding-top: 2rem;
+  padding-top: 9rem;
 }
 
 .chef-container li {
   background-color: #72b340;
   padding: 20px;
-  width: 30%;
   display: grid;
   justify-content: center;
   align-items: center;
   border-radius: 5%;
 }
 
-.chef-container li:hover {
-  background-color: #f5b8d2;
-  color: #333333;
-}
-
 .chef-container a {
   list-style: none;
   text-decoration: none;
   color: #ffffff;
-  font-size: 20px;
   font-weight: 600;
+  font-size: 16px;
+}
+@media (min-width: 1100px) {
+  .chef-list {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .chef-container li {
+    width: 80%;
+  }
+
+  .chef-container li:hover {
+    background-color: #f5b8d2;
+    color: #333333;
+  }
+
+  .chef-container a {
+    font-size: 20px;
+  }
 }

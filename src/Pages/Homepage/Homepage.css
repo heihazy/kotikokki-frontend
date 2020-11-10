@@ -45,6 +45,7 @@
 @media (min-width: 1100px) {
   .homepage-img {
     width: 60%;
+    justify-self: center;
   }
 
   .homepage {
@@ -58,7 +59,7 @@
     justify-self: center;
   }
 
-  .headline {
+  .homepage .headline {
     font-size: 3rem;
   }
 

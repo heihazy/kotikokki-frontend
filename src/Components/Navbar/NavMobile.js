@@ -23,7 +23,7 @@ const NavMobile = ({ hidden }) => {
   const animation = useSpring({
     height: open ? `${height}px` : "0px",
     opacity: open ? 1 : 0,
-    width: open ? `${width / 1.6}px` : "0px",
+    width: open ? `${width / 1.5}px` : "0px",
     backgroundColor: "#f5b8d2",
     position: "fixed",
     top: 0,
